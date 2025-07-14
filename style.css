@@ -1,0 +1,158 @@
+:root {
+  --bg: #fff;
+  --card: #f4f7fd;
+  --text: #000;
+  --highlight: rgb(107, 15, 150);
+}
+body.dark {
+  --bg: #20212c;
+  --card: #2b2c37;
+  --text: #fff;
+}
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  min-height: 100vh;
+}
+aside {
+  width: 220px;
+  background: var(--card);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+#sidebar h2 {
+  font-size: 1.5em;
+  margin: 0;
+}
+#allBoardsCount {
+  font-size: 0.9em;
+  color: gray;
+  margin-bottom: 1rem;
+  display: block;
+}
+aside ul {
+  list-style: none;
+  padding: 0;
+}
+aside li {
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+aside li:hover {
+  background:rgb(107, 15, 150);
+  color: white;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+.bottom {
+  margin-top: auto;
+}
+.switch input { display: none; }
+.slider {
+  width: 40px; height: 20px;
+  background:rgb(107, 15, 150);
+  border-radius: 20px;
+  display: inline-block;
+  position: relative;
+}
+.slider::before {
+  content: "";
+  position: absolute;
+  width: 18px; height: 18px;
+  left: 1px; top: 1px;
+  background: #fff;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+input:checked + .slider::before { transform: translateX(20px); }
+#hideSidebar, #showSidebar {
+  margin-top: 10px;
+  background: #888;
+  color: white;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+#showSidebar {
+  position: fixed; bottom: 10px; left: 10px;
+}
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.header {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+#addTaskBtn, #editBoardBtn {
+  background: rgb(107, 15, 150);
+  color: white;
+  padding: 6px 14px;
+  border: none;
+ border-bottom-right-radius: 15px;
+ border-bottom-left-radius: 15px;
+ border-top-left-radius: 15px;
+ border-top-right-radius: 15px;
+  cursor: pointer;
+  margin-left: 8px;
+}
+#editBoardBtn {
+  background: transparent;
+  color: var(--text);
+}
+#editBoardBtn:hover {
+  color: var(--highlight);
+}
+.board {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  overflow-x: auto;
+}
+.column {
+  background: var(--card);
+  padding: 1rem;
+  min-width: 200px;
+  border-radius: 8px;
+  flex: 0 0 auto;
+}
+.tasks .task {
+  background: var(--bg);
+  margin: 5px 0;
+  padding: 8px;
+  border-radius: 4px;
+  cursor: grab;
+}
+.add-column button {
+  background:var(--bg);
+  color:var(--text);
+  padding: 20px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+.modal {
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+.modal-content {
+  background: var(--card);
+  padding: 2rem;
+  border-radius: 8px;
+}
+.modal-content input, .modal-content select, .modal-content button {
+  margin-top: 10px; width: 100%; padding: 8px;
+}
+aside.collapsed {
+  width: 0; padding: 0; overflow: hidden;
+}

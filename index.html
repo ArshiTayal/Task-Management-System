@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kanban Board</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <aside id="sidebar">
+    <h2>🟪kanban</h2>
+    <small id="allBoardsCount">All Boards (3)</small>
+    <ul id="boardList">
+      <li class="active" data-board="Platform Launch">▤ Platform Launch</li>
+      <li data-board="Marketing Plan">▤ Marketing Plan</li>
+      <li data-board="Roadmap">▤ Roadmap</li>
+      <li id="createBoard" style="color:blueviolet">▤ + Create New Board</li>
+    </ul>
+    <div class="bottom">
+      <label class="switch">☀️
+        <input type="checkbox" id="theme" />
+        <span class="slider"></span>
+      </label>🌙
+      <button id="hideSidebar">👁 Hide Sidebar</button>
+    </div>
+  </aside>
+
+  <button id="showSidebar" style="display:none;">👉 Show Sidebar</button>
+
+  <main>
+    <div class="header">
+      <h3 id="boardTitle">Platform Launch</h3>
+      <div>
+        <button id="addTaskBtn">+ Add New Task</button>
+         <button id="editBoardBtn">⚙️</button>
+      </div>
+    </div>
+    <div id="board" class="board">
+      <div class="column" data-status="todo">
+        <h4>🔵TODO<span class="count">(0)</span></h4>
+        <div class="tasks"></div>
+      </div>
+      <div class="column" data-status="doing">
+        <h4>🟣DOING <span class="count">(0)</span></h4>
+        <div class="tasks"></div>
+      </div>
+      <div class="column" data-status="done">
+        <h4>🟢DONE <span class="count">(0)</span></h4>
+        <div class="tasks"></div>
+      </div>
+      <div class="add-column">
+        <button id="addColumnBtn">+New Column</button>
+      </div>
+    </div>
+  </main>
+
+  <div class="modal" id="taskModal">
+    <div class="modal-content">
+      <h3>Add Task</h3>
+      <input id="taskTitle" type="text" placeholder="Task title" />
+      <div id="subtasksContainer"></div>
+      <button id="addSubtask">+ Add Subtask</button>
+      <select id="taskStatus"></select>
+      <button id="saveTask">Save Task</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
